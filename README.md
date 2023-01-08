@@ -27,7 +27,7 @@ The caching is implemented with another  helper class and then shared between th
 Selection is implemented with a RawMaterialButton, since it handles the clicking and the outlining.
 
 ## Room for improvement
-Right now, the URL is checked for known image extensions to avoid attempting to show anything that isn't a known image type, but really the file should be downloaded and the MIME type checked.
+Right now, the URL is checked for known image extensions to avoid attempting to show anything that isn't a known image type, I am not able to show tab bar
 
 Also, the file handling could easily be fixed to support mobile; PRs gratefully accepted!
 
