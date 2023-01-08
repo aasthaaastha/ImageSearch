@@ -11,6 +11,11 @@ class ObjectUtil {
     return list == null || list.isEmpty;
   }
 
+    /// Add last element 
+  static bool addToList(Iterable? list) {
+    return list == null || list.isEmpty;
+  }
+
   /// Returns true if there is no key/value pair in the map.
   static bool isEmptyMap(Map? map) {
     return map == null || map.isEmpty;
