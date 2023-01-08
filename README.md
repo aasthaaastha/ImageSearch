@@ -34,5 +34,3 @@ Also, the file handling could easily be fixed to support mobile; PRs gratefully 
 Further, there is no cache clearing policy -- it just grows forever! This could certainly be improved.
 
 Finally, I didn't implementing paging, which the CSE API supports. Instead I just show the first 10 results, which I consider good enough for demo purposes.
-
-## Enjoy!
