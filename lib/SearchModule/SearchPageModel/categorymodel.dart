@@ -46,6 +46,7 @@ class Result {
     required this.width,
     required this.height,
     required this.color,
+    required this.text,
     required this.blurHash,
     required this.description,
     required this.altDescription,
@@ -67,6 +68,7 @@ class Result {
   int width;
   int height;
   String color;
+  String text;
   String blurHash;
   String description;
   String altDescription;
@@ -90,6 +92,7 @@ class Result {
         width: json["width"],
         height: json["height"],
         color: json["color"],
+        text: json["text"],
         blurHash: json["blur_hash"],
         description: json["description"] == null ? null : json["description"],
         altDescription: json["alt_description"],
@@ -114,6 +117,7 @@ class Result {
         "width": width,
         "height": height,
         "color": color,
+        "text": text,
         "blur_hash": blurHash,
         "description": description == null ? null : description,
         "alt_description": altDescription,
