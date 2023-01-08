@@ -1,55 +1,97 @@
-// Copyright (c) 2022 yichen <d.unicreators@gmail.com>. All rights reserved.
-// Use of this source code is governed by a MIT license that can be
-// found in the LICENSE file.
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_mvvm_example/models/character.dart';
+import 'package:flutter_mvvm_example/utils/star_wars_styles.dart';
 
-part of '../mvvm.dart';
+class Transform extends StatelessWidget {
+  final Character character;
 
-///
-/// 具有转换功能的绑定属性
-///
-class TransformBindableProperty<S, T> extends BindableProperty<T> {
-  final ValueListenable<S> _source;
-  late final VoidCallback _transformListener;
+  Transform({@required this.character});
 
-  ///
-  /// 创建一个具有转换功能的绑定属性，该绑定属性监视 [source] 的值变化，当
-  /// [source] 值发生变化时使用 [transformer] 对值进行转换，
-  /// 如转换结果非 `null`，则将结果值写入属性(可能会触发 `notify`)
-  ///
-  /// [source] 指定源
-  ///
-  /// [transformer] 指定值转换方法，如该方法返回 `null`
-  /// 则将该值写入属性(可能会触发 `notify`)
-  ///
-  /// [initial] 指定初始值
-  ///
-  /// [valueChanged] 指定属性值变更后的回调方法
-  ///
-  TransformBindableProperty(ValueListenable<S> source,
-      {required T? Function(S) transformer,
-      required T initial,
-      PropertyValueChanged<T>? valueChanged})
-      : _source = source,
-        _value = transformer(source.value) ?? initial,
-        super(valueChanged: valueChanged) {
-    _transformListener = () => _setValue(transformer(source.value));
-    _source.addListener(_transformListener);
+  @override
+  Widget build(BuildContext context) {
+    var title = Text(
+      character?.name,
+      style: TextStyle(
+        color: StarWarsStyles.titleColor,
+        fontWeight: FontWeight.bold,
+        fontSize: StarWarsStyles.titleFontSize,
+      ),
+    );
+
+    var subTitle = Row(
+      children: <Widget>[
+        Text(
+          character?.birthYear,
+          style: TextStyle(
+            color: StarWarsStyles.subTitleColor,
+          ),
+        ),
+        Container(
+          margin: const EdgeInsets.only(left: 6.0),
+          child: Icon(
+            _genderSymbol(),
+            color: StarWarsStyles.subTitleColor.withAlpha(200),
+            size: StarWarsStyles.subTitleFontSize,
+          ),
+        ),
+      ],
+    );
+
+    return Column(
+      children: <Widget>[
+        ListTile(
+          leading: Icon(
+            _affiliationSymbol(),
+            color: Theme.of(context).primaryColorLight,
+            size: 40.0,
+          ),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 20.0),
+          title: title,
+          subtitle: subTitle,
+        ),
+        Divider(),
+      ],
+    );
   }
 
-  T _value;
-  @override
-  T get value => _value;
-
-  void _setValue(T? value) {
-    if (value != null && _value != value) {
-      _value = value;
-      notifyListeners();
+  IconData _affiliationSymbol() {
+    switch (character.name) {
+      case 'Luke Skywalker':
+        return FontAwesomeIcons.jediOrder;
+      case 'C-3PO':
+        return FontAwesomeIcons.rebel;
+      case 'R2-D2':
+        return FontAwesomeIcons.rebel;
+      case 'Darth Vader':
+        return FontAwesomeIcons.empire;
+      case 'Leia Organa':
+        return FontAwesomeIcons.galacticRepublic;
+      case 'Owen Lars':
+        return Icons.face;
+      case 'Beru Whitesun lars':
+        return Icons.face;
+      case 'R5-D4':
+        return FontAwesomeIcons.rebel;
+      case 'Biggs Darklighter':
+        return FontAwesomeIcons.rebel;
+      case 'Obi-Wan Kenobi':
+        return FontAwesomeIcons.jediOrder;
+      default:
+        return null;
     }
   }
 
-  @override
-  void dispose() {
-    _source.removeListener(_transformListener);
-    super.dispose();
+  IconData _genderSymbol() {
+    switch (character.gender) {
+      case 'male':
+        return FontAwesomeIcons.mars;
+      case 'female':
+        return FontAwesomeIcons.venus;
+      case 'n/a':
+        return FontAwesomeIcons.robot;
+      default:
+        return null;
+    }
   }
 }
