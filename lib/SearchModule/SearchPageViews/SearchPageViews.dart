@@ -20,9 +20,11 @@ class SearchPageViews extends State<MainPage> with SingleTickerProviderStateMixi
   TabController tabController;
 
   Future loadData() async {
-    await widget.viewModel.setFilms();
-    await widget.viewModel.setCharacters();
-    await widget.viewModel.setPlanets();
+    await widget.viewModel.setSearch();
+    await widget.viewModel.setImages();
+    await widget.viewModel.setSubCategory();
+     await widget.viewModel.setTags();
+
   }
 
   @override
