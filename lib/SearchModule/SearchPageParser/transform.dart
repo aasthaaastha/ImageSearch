@@ -31,6 +31,7 @@ class Transform extends StatelessWidget {
           margin: const EdgeInsets.only(left: 6.0),
           child: Icon(
             _genderSymbol(),
+            text: StarWarsStyles.subTitleColor.withAlpha(200),
             color: StarWarsStyles.subTitleColor.withAlpha(200),
             size: StarWarsStyles.subTitleFontSize,
           ),
