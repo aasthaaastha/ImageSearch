@@ -1,11 +1,10 @@
 # Image_search
-An image search app using Google's Custom Search Engine, caching and debouncing.
+An image search app using Google's Custom Search Engine, caching.
 
 ## Getting Started
 This currently only works on desktop for Windows and Mac as the file handling is simple; could be updated to support mobile, too, with a little effort. Not quite sure how to think about making it work on the web...
 
-For this sample to work, you need a file called cse-engine-id.txt and cse-key.txt in the root folder. You can
-get those values by setting up a [Google Custom Search Engine project](https://stackoverflow.com/a/34062436). The contents of the cse-engine-id.txt file should be the cx parameter of an API query and the contents of the cse-key.txt file should be the key parameter.
+[Google Custom Search Engine project](https://stackoverflow.com/a/34062436).
 
 With these files in place, you can run the app like this:
 
