@@ -2,7 +2,7 @@
 An image search app using Google's Custom Search Engine, caching.
 
 ## Getting Started
-This currently only works on desktop for Windows and Mac as the file handling is simple; could be updated to support mobile, too, with a little effort. Not quite sure how to think about making it work on the web...
+This currently only works on mobile.
 
 [Google Custom Search Engine project](https://stackoverflow.com/a/34062436).
 
@@ -15,7 +15,7 @@ $ flutter run android
 $ flutter run iOS
 ```
 
-And expect results like this:
+And expect results like this: A sample flow
 
 <img src='readme/demo.gif' />
 
