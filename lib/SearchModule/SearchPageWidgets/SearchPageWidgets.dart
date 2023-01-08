@@ -43,6 +43,21 @@ class _CustomTabsState extends State<CustomTabView>
     super.initState();
   }
 
+    @override
+  void DisposeState() {
+    _currentPosition = widget.initPosition ?? 0;
+    controller = TabController(
+      length: widget.itemCount,
+      vsync: this,
+      initialIndex: _currentPosition!,
+    );
+    controller!.addListener(onPositionChange);
+    controller!.animation!.addListener(onScroll);
+    _currentCount = widget.itemCount;
+    super.initState();
+  }
+
+
   @override
   void didUpdateWidget(CustomTabView oldWidget) {
     if (_currentCount != widget.itemCount) {
