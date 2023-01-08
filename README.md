@@ -29,7 +29,7 @@ Selection is implemented with a RawMaterialButton, since it handles the clicking
 ## Room for improvement
 Right now, the URL is checked for known image extensions to avoid attempting to show anything that isn't a known image type, I am not able to show tab bar
 
-Also, the file handling could easily be fixed to support mobile; PRs gratefully accepted!
+Also, the file handling could easily be fixed
 
 Further, there is no cache clearing policy -- it just grows forever! This could certainly be improved.
 
