@@ -20,6 +20,7 @@ class PhotosModel {
     required this.width,
     required this.height,
     required this.color,
+    required this.searchText,
     required this.blurHash,
     required this.description,
     required this.altDescription,
@@ -40,6 +41,7 @@ class PhotosModel {
   int width;
   int height;
   String color;
+  String searchText;
   String blurHash;
   String description;
   dynamic altDescription;
@@ -62,6 +64,7 @@ class PhotosModel {
         width: json["width"],
         height: json["height"],
         color: json["color"],
+        searchText: json["searchText"],
         blurHash: json["blur_hash"],
         description: json["description"] == null ? null : json["description"],
         altDescription: json["alt_description"],
